@@ -161,6 +161,21 @@ else{
 
 
 
+addLastSearchedToUI(ui,donus){
+if(donus.length > 5 ){
+    for(let i=0 ; i<5 ; i++){
+        ui.innerHTML += `
+        <li class="list-group-item">${donus[i]}</li>
+        `;
+    }
+        
+    
+    }
+}
+
+
+
+
 
 
 

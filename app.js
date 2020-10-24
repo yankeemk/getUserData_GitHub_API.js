@@ -25,7 +25,7 @@ const profileLink =document.querySelector("#blank");
 const reposElement = document.querySelector("#repos");
 const lastUserElement = document.querySelector("#last-users");
 const deleteButton = document.querySelector("#clear-last-users");
-
+const lastUsers = document.querySelector("#last-users");
 
 const ui = new UI(profileAvatar,profileFullName,profileBio,profileBadgeFirst,profileBadgeSecond,
     profileBadgeThird,profileCompany,profileLocation,profileMail,profileLink,reposElement);
@@ -68,6 +68,7 @@ function searchUser(e){
     github.getReposData(githubNameValue)
     .then(response =>{ui.addReposToUI(response)});
 
+    Storage.setItemToStorage(githubNameValue);
    
 
 
@@ -83,7 +84,10 @@ function searchUser(e){
 
 function getUsers(){
     
+    
+     Storage.getItemFromStorage();
 
+     ui.addLastSearchedToUI(lastUsers,Storage.getItemFromStorage());
 
 
 
